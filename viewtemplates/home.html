@@ -1,0 +1,98 @@
+<!Doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GP4-Lab-07</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </head>
+<body>
+<section>
+  <br>
+    <div class=" col-md-6 banner" style="background-color: #87CEEB; margin: 0 auto;">
+      <h3 style="text-align: center; padding-top: 4%; padding-bottom: 4%;">Welcome!</h3>
+    </div>
+    <hr>
+    <div class="container-fluid" style="min-height:100%">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{category or 'warning'}} alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{message}}
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+            <h3 class="text-center">Register</h3>
+            <p>Dont have an account please Register</p>
+            {% if warnings %}
+                <div class="alert alert-info alert-dismissible" role="alert">
+                  <h4>Your Password didn't meet the following Conditions:</h4>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  {% for item in warnings %}
+                  <ul class=flashes>
+                      <li class="warning">{{ item }}</li>
+                  </ul>
+                  {% endfor %}
+                </div>
+            {% endif %}
+              <form action="http://127.0.0.1:5000/register", method="POST">
+                    {{ signupform.hidden_tag() }}
+                  <div class="form-group">
+                      <label>Firstname</label>
+                      {{signupform.first_name(class_="form-control")}}
+                  </div>
+                  <div class="form-group">
+                      <label>Lastname</label>
+                      {{signupform.last_name(class_="form-control")}}
+                  </div>
+                    <div class="form-group">
+                      <label>Email</label>
+                      {{signupform.email_addr(class_="form-control")}}
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      {{signupform.passcode(class_="form-control")}}
+                    </div>
+                  <div class="form-group">
+                      <label>Confirm Password</label>
+                      {{signupform.confirmPasscode(class_="form-control")}}
+                    </div>
+                  <button type="submit" class="btn btn-md pull-right btn-info">Register</button>
+                </form>
+          </div>
+                      
+          <div class="col-md-6">
+              <h3 class="text-center">Sign-In</h3>
+              <p>Registered Already, please Sign-In here</p>
+              <form action="/login", method="POST">
+                    {{ loginform.hidden_tag() }}
+                  <div class="form-group">
+                      <label>Email</label>
+                      {{loginform.email_addr(class_="form-control")}}
+                  </div>
+                  <div class="form-group">
+                      <label>Password</label>
+                      {{loginform.passcode(class_="form-control")}}
+                  </div>
+                  <button type="submit" class="btn btn-md pull-right btn-info">login</button>
+                </form>
+          </div>
+          <div class="line"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+#submit {
+    margin-bottom: 1%
+}
+
+
+.line {
+    width: 1px;
+    background-color: #ccc;
+    height: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .register_section {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9tjxHPHxPrfjyi8QcfXSTizoFEoKSnJjhZg&usqp=CAU');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .secret_section {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://t3.ftcdn.net/jpg/00/46/44/02/360_F_46440268_HxTMxCec1EntidRNV0mrw1wMDtMcYk8g.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
