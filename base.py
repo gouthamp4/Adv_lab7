@@ -28,7 +28,7 @@ def hashCompare(hashed, password):
         print(error)
         flash(error, "danger")
         return redirect(url_for('homePage'))
-
+#commit push to main
 
 def generateSaltPasscode(passcode):
     try:
