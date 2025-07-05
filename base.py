@@ -19,6 +19,7 @@ def passwordValidate(password):
     return True if len(warnings) == 0 else False
 
 # Hashed Paswords are compared
+#i am goutham made some chenges here 
 def hashCompare(hashed, password):
     try:
         if not hashed or not password:
