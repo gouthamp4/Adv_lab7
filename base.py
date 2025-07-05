@@ -19,6 +19,7 @@ def passwordValidate(password):
     return True if len(warnings) == 0 else False
 
 # Hashed Paswords are compared
+#i am goutham made some chenges here 
 def hashCompare(hashed, password):
     try:
         if not hashed or not password:
@@ -28,7 +29,7 @@ def hashCompare(hashed, password):
         print(error)
         flash(error, "danger")
         return redirect(url_for('homePage'))
-
+#commit push to main
 
 def generateSaltPasscode(passcode):
     try:
